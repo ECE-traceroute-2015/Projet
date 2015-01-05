@@ -15,7 +15,9 @@ public class TP1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+      System.out.println("ok");
+      System.out.println(System.getProperty("os.name"));// retourne le nom du système d'exploitation.
+      
     }
     
 }
