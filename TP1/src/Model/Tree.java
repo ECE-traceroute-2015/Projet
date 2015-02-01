@@ -58,12 +58,16 @@ public class Tree
     
     public boolean addChildren(List<String> IPs) 
     {
+       
      try{
             List<Node> _myNewChildren = new ArrayList<Node>();
             List<Node> _myEmptyChildren = new ArrayList<Node>();
+            
+            int size = _myNodes.size();
 
-            for(int i=0; i<_myNodes.size(); i++)
+            for(int i=0; i<size; i++)
             {
+                
                 if(_myNodes.get(i).getChildren().isEmpty())
                 {
                     for(int j=0; j<IPs.size(); j++)
@@ -73,8 +77,10 @@ public class Tree
                     }
 
                    _myNodes.get(i).setChildren(_myNewChildren);
+                   _myNewChildren.clear();
                     
                 }     
+                
             } 
      }catch(Exception e){
          e.printStackTrace();
