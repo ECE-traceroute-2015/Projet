@@ -6,6 +6,7 @@
 
 package Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,29 +16,35 @@ import java.util.List;
 public class Node {
     
     private final String _address;
-    private final List<Node> _children;
-    private final List<Node> _parents;
-   
-    public Node(String Address, List<Node> children, List<Node> parents)
+    private List<Node> _children = new ArrayList<>();
+    
+    public Node(String address, List<Node> children)
     {
-        _address = Address;
-        _children = children; 
-        _parents = parents;
+        this._children = children;
+        this._address = address;     
+    }
+    
+    public Node(String address)
+    {
+        this._address=address;
+    }
+    
+    public String getAddress()
+    {
+        return this._address;
     }
     
     public List<Node> getChildren()
     {
-        return _children;
+        return this._children;
     }
     
-    public List<Node> getParent()
-    {
-        return _parents;
-    }
+    
     
     public void setChildren(List<Node> children)
     {
         for(Node child : children)
+        //for(int i=0; i<children.size(); i++)
         {
             _children.add(child);
         }
@@ -47,5 +54,11 @@ public class Node {
     public int countChild(Node parent)
     {
         return parent.getChildren().size();
+    }
+    
+    public void displayNode()
+    {
+        System.out.println(_address);
+        
     }
 }
