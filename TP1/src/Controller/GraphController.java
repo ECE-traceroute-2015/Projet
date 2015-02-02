@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.InputStreamReader;
+import java.net.InetAddress;
 import java.util.Random;
 import org.graphstream.graph.implementations.SingleGraph;
 
@@ -33,6 +34,7 @@ public class GraphController
     {
         System.setProperty("gs.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
 
+    //InetAddress localIP =  InetAddress.getLocalHost();
     Node _myRoot = new Node("123");
     
     Tree _myTree = new Tree(_myRoot);
@@ -60,8 +62,11 @@ public class GraphController
             //System.out.println("**********************");
             //System.out.println(ligne);
             //System.out.println("**********************");
-            //destination= _myTree.getIPs(ligne, destination).get(0);
-            _listeIPs = _myTree.getIPs(ligne,adresse);
+                    
+                    InetAddress destinationIP =InetAddress.getByName(adresse);
+                    destination = destinationIP.getHostAddress();
+                    
+            _listeIPs = _myTree.getIPs(ligne,destination);
             boolean _myBool = _myTree.addChildren(_listeIPs);
             if(_myBool)
             {
