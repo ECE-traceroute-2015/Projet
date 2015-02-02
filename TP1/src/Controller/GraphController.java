@@ -28,7 +28,7 @@ public class GraphController
     private static BufferedReader getError(Process p) {
         return new BufferedReader(new InputStreamReader(p.getErrorStream()));
     }
-    public boolean traceGraph(String adresse)
+    public static boolean traceGraph(String adresse)
     {
         System.setProperty("gs.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
 

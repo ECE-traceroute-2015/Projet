@@ -21,6 +21,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import Controller.GraphController;
 
 /**
  *
@@ -79,11 +80,16 @@ public class Fenetre extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         
-        
-        if (ae.getActionCommand().equals("graph")) {
+        try{
+            if (ae.getActionCommand().equals("Générer Graphe")) {
 
-            String _finalIP = new String(field_IPaddress.getText());
-            
-        } 
+                String _finalIP = new String(field_IPaddress.getText());
+                boolean traceGraph = Controller.GraphController.traceGraph(_finalIP); 
+                System.out.println("okk");
+            } 
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 }
