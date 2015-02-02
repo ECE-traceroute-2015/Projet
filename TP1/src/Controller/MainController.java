@@ -32,7 +32,7 @@ public class MainController {
         
     // Window creation
     Fenetre f = new Fenetre();
-    GraphController.traceGraph("www.ece.fr");
+    //GraphController.traceGraph("www.ece.fr");
 
 
     }

@@ -23,6 +23,8 @@ public class Graph
     public static boolean newGraph(Tree _mytree)
         {
             
+            try
+            {
 
             SingleGraph graph = new SingleGraph("Tutorial 1");
             List<Node> _myNodes = _mytree.getMyNodes();
@@ -31,7 +33,7 @@ public class Graph
             graph.addNode("C" );*/
             for(int i=0; i<_myNodes.size(); i++)
             {
-                if (i>1)
+                //if (i>1)
                 {
                 System.out.println("ok");
                 org.graphstream.graph.Node n = graph.addNode(_myNodes.get(i).getAddress());
@@ -42,7 +44,7 @@ public class Graph
             }
             for(int i=0; i<_myNodes.size(); i++)
             {
-                if (i>1)
+                //if (i>1)
                 {
                 for(int j=0; j<_myNodes.get(i).getChildren().size();j++)
                 {
@@ -55,7 +57,11 @@ public class Graph
             graph.addAttribute("ui.stylesheet", "url('file:stylesheet')");
             Viewer viewer = graph.display();
             //viewer.disableAutoLayout();
-            
+            }
+            catch(Exception e)
+                    {
+                        e.printStackTrace();
+                    }
             return true;
         }
     
