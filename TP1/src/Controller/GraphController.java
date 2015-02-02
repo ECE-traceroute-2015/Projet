@@ -40,7 +40,7 @@ public class GraphController
     Process p = null;
 
     try {
-        String commande = "java -jar ./lib/fakeroute.jar "+adresse;
+        String commande = "java -jar ./lib/fakeroute.jar 3.3.3.3";
         p = Runtime.getRuntime().exec(commande);
 
     } catch (IOException e) {
