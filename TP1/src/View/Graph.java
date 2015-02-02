@@ -23,8 +23,7 @@ public class Graph
     public static boolean newGraph(Tree _mytree)
         {
             
-            try
-            {
+            
 
             SingleGraph graph = new SingleGraph("Tutorial 1");
             List<Node> _myNodes = _mytree.getMyNodes();
@@ -34,8 +33,8 @@ public class Graph
             for(int i=0; i<_myNodes.size(); i++)
             {
 
-                
-                //if (i>1)
+            try
+            {
 
                 {
                 System.out.println("ok");
@@ -43,7 +42,11 @@ public class Graph
                 n.addAttribute("ui.label", _myNodes.get(i).getAddress());
 
                 }
-                
+            }
+            catch(Exception e)
+                    {
+                        e.printStackTrace();
+                    }    
             }
             for(int i=0; i<_myNodes.size(); i++)
             {
@@ -60,11 +63,7 @@ public class Graph
             graph.addAttribute("ui.stylesheet", "url('file:stylesheet')");
             Viewer viewer = graph.display();
             //viewer.disableAutoLayout();
-            }
-            catch(Exception e)
-                    {
-                        e.printStackTrace();
-                    }
+            
             return true;
         }
     
