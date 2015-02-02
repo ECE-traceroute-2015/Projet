@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.InputStreamReader;
+import java.util.Random;
 import org.graphstream.graph.implementations.SingleGraph;
 
 /**
@@ -111,5 +112,15 @@ public class GraphController
 
         return true; 
     }
+    
+    public static boolean traceGraphAuto()
+    {
+        String adresseIP;
+        Random rand = new Random();
+        adresseIP = Integer.toString(rand.nextInt(256))+"."+Integer.toString(rand.nextInt(256))+"."+Integer.toString(rand.nextInt(256))+"."+Integer.toString(rand.nextInt(256));
+        traceGraph(adresseIP);
+        return true;
+    }
+    
     
 }

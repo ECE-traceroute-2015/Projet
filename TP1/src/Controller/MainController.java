@@ -24,8 +24,6 @@ import org.graphstream.graph.implementations.SingleGraph;
  */
 public class MainController {
 
-    
-    
 
    
     public static void main(String[] args) {
@@ -34,9 +32,15 @@ public class MainController {
         
     // Window creation
     Fenetre f = new Fenetre();
+    GraphController.traceGraph("www.ece.fr");
 
 
     }
-  
+
+    
+
 }
+
+  
+
 
