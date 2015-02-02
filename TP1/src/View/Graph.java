@@ -36,9 +36,6 @@ public class Graph
                 System.out.println("ok");
                 org.graphstream.graph.Node n = graph.addNode(_myNodes.get(i).getAddress());
                 n.addAttribute("ui.label", _myNodes.get(i).getAddress());
-                //n.addAttribute("xy", 2,i);
-               
-               
                 }
                 
             }
@@ -60,5 +57,7 @@ public class Graph
             
             return true;
         }
+    
+
     
 }

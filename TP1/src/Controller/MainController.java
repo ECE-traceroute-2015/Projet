@@ -37,12 +37,16 @@ public class MainController {
    
     public static void main(String[] args) {
 
+
         
     // Window creation
     Fenetre f = new Fenetre();
       
 
     
+
+
+    System.setProperty("gs.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
 
     Node _myRoot = new Node("123");
     
@@ -94,6 +98,7 @@ public class MainController {
         
         _myTree.displayTree();
 
+
         
          System.out.println("\n");
         
@@ -118,6 +123,8 @@ public class MainController {
 
 
 
+
 }
   
 }
+
