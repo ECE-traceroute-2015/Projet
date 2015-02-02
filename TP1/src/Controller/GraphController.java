@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.InputStreamReader;
+import java.util.Random;
 import org.graphstream.graph.implementations.SingleGraph;
 
 /**
@@ -52,14 +53,15 @@ public class GraphController
     BufferedReader error = getError(p);
     String ligne = "";
     List<String> _listeIPs = new ArrayList<>();
+    String destination = "";
 
     try{
-
         while ((ligne = output.readLine()) != null) {
             //System.out.println("**********************");
             //System.out.println(ligne);
             //System.out.println("**********************");
-            _listeIPs = _myTree.getIPs(ligne);
+            //destination= _myTree.getIPs(ligne, destination).get(0);
+            _listeIPs = _myTree.getIPs(ligne,adresse);
             boolean _myBool = _myTree.addChildren(_listeIPs);
             if(_myBool)
             {
@@ -74,6 +76,8 @@ public class GraphController
             
             
         }
+        _listeIPs.add(adresse);
+        _myTree.addChildren(_listeIPs);
 
         while ((ligne = error.readLine()) != null) {
             System.out.println(ligne);
@@ -111,5 +115,15 @@ public class GraphController
 
         return true; 
     }
+    
+    public static boolean traceGraphAuto()
+    {
+        String adresseIP;
+        Random rand = new Random();
+        adresseIP = Integer.toString(rand.nextInt(256))+"."+Integer.toString(rand.nextInt(256))+"."+Integer.toString(rand.nextInt(256))+"."+Integer.toString(rand.nextInt(256));
+        traceGraph(adresseIP);
+        return true;
+    }
+    
     
 }

@@ -118,7 +118,7 @@ public class Tree
     }
     
 
-    public List<String> getIPs(String ligne)
+    public List<String> getIPs(String ligne,String destination)
     {
         List<String> liste = new ArrayList<>();
         
@@ -126,9 +126,13 @@ public class Tree
         Matcher m = p.matcher(ligne);
         while (m.find()) 
         {
-            //System.out.println(m.group()) ;
+            if(!(m.group().equals(destination)))
+            {
+            System.out.println("a" + m.group() + "a") ;
             liste.add(m.group());
+            }
         }
+        
 
         System.out.println("\n");
 
