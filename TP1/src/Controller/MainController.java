@@ -3,23 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package Controller;
+
 
 import Model.Node;
 import Model.Tree;
+import View.Fenetre;
+import View.Graph;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.io.InputStreamReader;
 import org.graphstream.graph.implementations.SingleGraph;
 
 /**
  *
- * @author lionelgrondin
+ * @author Larbish
  */
-public class GraphController 
-{
+public class MainController {
+
+    
     private static BufferedReader getOutput(Process p) {   
 
         return new BufferedReader(new InputStreamReader(p.getInputStream()));
@@ -28,9 +33,20 @@ public class GraphController
     private static BufferedReader getError(Process p) {
         return new BufferedReader(new InputStreamReader(p.getErrorStream()));
     }
-    public boolean traceGraph(String adresse)
-    {
-        System.setProperty("gs.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+
+   
+    public static void main(String[] args) {
+
+
+        
+    // Window creation
+    Fenetre f = new Fenetre();
+      
+
+    
+
+
+    System.setProperty("gs.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
 
     Node _myRoot = new Node("123");
     
@@ -40,7 +56,7 @@ public class GraphController
     Process p = null;
 
     try {
-        String commande = "java -jar ./lib/fakeroute.jar "+adresse;
+        String commande = "java -jar ./lib/fakeroute.jar www.ece.fr";
         p = Runtime.getRuntime().exec(commande);
 
     } catch (IOException e) {
@@ -108,8 +124,7 @@ public class GraphController
 
 
 
-
-        return true; 
-    }
-    
 }
+  
+}
+
