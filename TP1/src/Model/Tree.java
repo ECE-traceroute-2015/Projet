@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.tree.DefaultMutableTreeNode;
+
 
 
 
@@ -23,6 +25,7 @@ public class Tree
 {
     private final Node _root;
     private List<Node> _myNodes = new ArrayList<>();
+    
     
     
     public Tree(Node root)
@@ -56,6 +59,18 @@ public class Tree
         return null;
     }
     
+    public boolean addChildren(String IP)
+    {
+        for(int i=0; i<_myNodes.size(); i++)
+            {
+                if(_myNodes.get(i).getChildren().isEmpty())
+                {
+                
+                }
+            }
+        
+        return true;
+    }
     public boolean addChildren(List<String> IPs) 
     {
        
@@ -72,7 +87,7 @@ public class Tree
                 {
                     for(int j=0; j<IPs.size(); j++)
                     {
-                        _myNewChildren.add(new Node(IPs.get(j), _myEmptyChildren));
+                        _myNewChildren.add(new Node(IPs.get(j), _myEmptyChildren));//ajout d'un noeud dans la liste des fils
                         _myNodes.add(new Node(IPs.get(j), _myEmptyChildren));
                     }
 
@@ -102,6 +117,7 @@ public class Tree
         }
     }
     
+
     public List<String> getIPs(String ligne)
     {
         List<String> liste = new ArrayList<>();
@@ -110,10 +126,14 @@ public class Tree
         Matcher m = p.matcher(ligne);
         while (m.find()) 
         {
-            System.out.println(m.group()) ;
+            //System.out.println(m.group()) ;
             liste.add(m.group());
         }
-        //System.out.println("\n");
+
+        System.out.println("\n");
+
+        System.out.println("\n");
+
          
        
 

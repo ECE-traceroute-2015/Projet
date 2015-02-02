@@ -6,34 +6,44 @@
 
 package Controller;
 
+
 import Model.Node;
 import Model.Tree;
 import View.Fenetre;
+import View.Graph;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import org.graphstream.graph.implementations.SingleGraph;
 
 /**
  *
  * @author Larbish
  */
 public class MainController {
+
     
     private static BufferedReader getOutput(Process p) {   
+
         return new BufferedReader(new InputStreamReader(p.getInputStream()));
     }
 
     private static BufferedReader getError(Process p) {
         return new BufferedReader(new InputStreamReader(p.getErrorStream()));
     }
+
    
     public static void main(String[] args) {
+
         
     // Window creation
     Fenetre f = new Fenetre();
       
+
+    
+
     Node _myRoot = new Node("123");
     
     Tree _myTree = new Tree(_myRoot);
@@ -58,9 +68,9 @@ public class MainController {
     try{
 
         while ((ligne = output.readLine()) != null) {
-            System.out.println("**********************");
-            System.out.println(ligne);
-            System.out.println("**********************");
+            //System.out.println("**********************");
+            //System.out.println(ligne);
+            //System.out.println("**********************");
             _listeIPs = _myTree.getIPs(ligne);
             boolean _myBool = _myTree.addChildren(_listeIPs);
             if(_myBool)
@@ -79,9 +89,11 @@ public class MainController {
 
         while ((ligne = error.readLine()) != null) {
             System.out.println(ligne);
+
         }
         
         _myTree.displayTree();
+
         
          System.out.println("\n");
         
@@ -94,6 +106,11 @@ public class MainController {
         }
         
         
+
+   
+         boolean ex;
+         ex = View.Graph.newGraph(_myTree);
+
     }
      catch (IOException e) {
         e.printStackTrace();
@@ -104,4 +121,3 @@ public class MainController {
 }
   
 }
-    
