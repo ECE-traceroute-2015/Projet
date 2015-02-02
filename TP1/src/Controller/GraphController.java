@@ -11,6 +11,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -22,6 +23,7 @@ import org.graphstream.graph.implementations.SingleGraph;
  */
 public class GraphController 
 {
+    
     private static BufferedReader getOutput(Process p) {   
 
         return new BufferedReader(new InputStreamReader(p.getInputStream()));
@@ -30,12 +32,14 @@ public class GraphController
     private static BufferedReader getError(Process p) {
         return new BufferedReader(new InputStreamReader(p.getErrorStream()));
     }
-    public static boolean traceGraph(String adresse)
+    public static boolean traceGraph(String adresse) throws UnknownHostException
     {
         System.setProperty("gs.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
-
-    //InetAddress localIP =  InetAddress.getLocalHost();
-    Node _myRoot = new Node("123");
+        try{
+            InetAddress localIP =  InetAddress.getLocalHost();
+            String hostIP = localIP.getHostAddress() ;
+            Node _myRoot = new Node(hostIP); 
+        
     
     Tree _myTree = new Tree(_myRoot);
     
@@ -119,14 +123,17 @@ public class GraphController
         e.printStackTrace();
     }
 
-
+    }catch(UnknownHostException uhe)
+        {
+            uhe.printStackTrace();
+        }
 
 
 
         return true; 
     }
     
-    public static boolean traceGraphAuto()
+    public static boolean traceGraphAuto() throws UnknownHostException
     {
         String adresseIP;
         Random rand = new Random();
