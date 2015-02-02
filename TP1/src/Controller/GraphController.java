@@ -34,7 +34,7 @@ public class GraphController
     }
     public static boolean traceGraph(String adresse) throws UnknownHostException
     {
-        System.setProperty("gs.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+        System.setProperty("org.graphstream.ui.renderer", "org.graphstream.ui.j2dviewer.J2DGraphRenderer");
         try{
             
             InetAddress localIP =  InetAddress.getLocalHost();
@@ -130,13 +130,13 @@ public class GraphController
                 return true; 
     }
     
-    public static boolean traceGraphAuto() throws UnknownHostException
+    public static String traceGraphAuto() throws UnknownHostException
     {
         String adresseIP;
         Random rand = new Random();
         adresseIP = Integer.toString(rand.nextInt(256))+"."+Integer.toString(rand.nextInt(256))+"."+Integer.toString(rand.nextInt(256))+"."+Integer.toString(rand.nextInt(256));
         traceGraph(adresseIP);
-        return true;
+        return adresseIP;
     }
     
     

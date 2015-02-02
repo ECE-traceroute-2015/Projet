@@ -126,11 +126,11 @@ public class Tree
         Matcher m = p.matcher(ligne);
         while (m.find()) 
         {
-            //if(!(m.group().equals(destination)))
-            //{
+            if(!(m.group().equals(destination)))
+            {
             System.out.println("a" + m.group() + "a") ;
             liste.add(m.group());
-            //}
+            }
         }
         
 
