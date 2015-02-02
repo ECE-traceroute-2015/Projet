@@ -33,11 +33,10 @@ public class Graph
             graph.addNode("C" );*/
             for(int i=0; i<_myNodes.size(); i++)
             {
-<<<<<<< HEAD
-                if (i>2)
-=======
+
+                
                 //if (i>1)
->>>>>>> origin/master
+
                 {
                 System.out.println("ok");
                 org.graphstream.graph.Node n = graph.addNode(_myNodes.get(i).getAddress());

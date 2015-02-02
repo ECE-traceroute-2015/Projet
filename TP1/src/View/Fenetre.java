@@ -85,7 +85,7 @@ public class Fenetre extends JFrame implements ActionListener {
 
                 String _finalIP = new String(field_IPaddress.getText());
                 boolean traceGraph = Controller.GraphController.traceGraph(_finalIP); 
-                System.out.println("okk");
+                
             } 
         }catch(Exception e)
         {

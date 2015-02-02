@@ -9,10 +9,10 @@ import Model.Node;
 import Model.Tree;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import org.graphstream.graph.implementations.SingleGraph;
 
@@ -43,7 +43,7 @@ public class GraphController
     Process p = null;
 
     try {
-        String commande = "java -jar ./lib/fakeroute.jar 3.3.3.3";
+        String commande = "java -jar ./lib/fakeroute.jar " + adresse;
         p = Runtime.getRuntime().exec(commande);
 
     } catch (IOException e) {
@@ -58,13 +58,18 @@ public class GraphController
     String destination = "";
 
     try{
+        
+        if((ligne = output.readLine()) != null)
+        {
+            destination = _myTree.getIPs(ligne, destination).get(0);
+        }
         while ((ligne = output.readLine()) != null) {
             //System.out.println("**********************");
             //System.out.println(ligne);
             //System.out.println("**********************");
                     
-                    InetAddress destinationIP =InetAddress.getByName(adresse);
-                    destination = destinationIP.getHostAddress();
+       // Address destinationIP = Address.getByName(adresse);
+        //destination = destinationIP.getHostAddress();
                     
             _listeIPs = _myTree.getIPs(ligne,destination);
             boolean _myBool = _myTree.addChildren(_listeIPs);
