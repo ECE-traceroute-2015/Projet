@@ -1,0 +1,12 @@
+node{
+	
+	text-mode : normal;
+    text-background-mode : rounded-box;
+    text-background-color : yellow;
+}
+/*edge
+{
+	text-mode : normal;
+    text-background-mode : rounded-box;
+    text-background-color : red;
+}*/
