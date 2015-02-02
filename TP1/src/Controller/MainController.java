@@ -9,7 +9,7 @@ package Controller;
 
 import Model.Node;
 import Model.Tree;
-import Vue.Graph;
+import View.Graph;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -86,7 +86,7 @@ public class MainController {
         _myTree.displayTree();
    
          boolean ex;
-         ex = Vue.Graph.newGraph(_myTree);
+         ex = View.Graph.newGraph(_myTree);
     }
      catch (IOException e) {
         e.printStackTrace();
