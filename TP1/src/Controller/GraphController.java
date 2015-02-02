@@ -86,7 +86,7 @@ public class GraphController
             
             
         }
-        _listeIPs.add(adresse);
+        _listeIPs.add(destination);
         _myTree.addChildren(_listeIPs);
 
         while ((ligne = error.readLine()) != null) {
