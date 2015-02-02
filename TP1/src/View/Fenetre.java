@@ -63,7 +63,10 @@ public class Fenetre extends JFrame implements ActionListener {
         add(label_IPaddress);
         add(field_IPaddress);
         add(graph);
- 
+        
+        //ajout action listener
+        graph.addActionListener(this);
+
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent evt) {
@@ -75,6 +78,12 @@ public class Fenetre extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        
+        if (ae.getActionCommand().equals("graph")) {
+
+            String _finalIP = new String(field_IPaddress.getText());
+            
+        } 
     }
 }
